@@ -19,8 +19,7 @@ module.exports = class eotrmf extends Sequelize.Model {
           field:'postId',
           type: Sequelize.STRING(500),
           allowNull: false,
-          references: Post.id,
-          onDelete: 'cascade',
+    
       }
     }, {
       sequelize,
@@ -35,17 +34,23 @@ module.exports = class eotrmf extends Sequelize.Model {
   }
 
   static associate(db) {
-    // db.User.hasMany(db.Post);
-    // db.User.belongsToMany(db.User, {
+    
+
+    db.Eotrmf.belongsTo(db.Post, {
+      foreignKey: 'id', 
+      sourceKey : 'postId'
+    });
+    db.Post.hasMany(db.Eotrmf, {
+      foreignKey : 'id',
+      targetKey : 'postId',
+      onDelete: 'cascade'
+    })
+    // db.User.belongsToMany(Post, {
     //   foreignKey: 'followingId',
     //   as: 'Followers',
     //   through: 'Follow',
     // });
-    // db.User.belongsToMany(db.User, {
-    //   foreignKey: 'followerId',
-    //   as: 'Followings',
-    //   through: 'Follow',
-    // });
+    
   }
 };
 

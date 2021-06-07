@@ -27,7 +27,7 @@ Team.init(sequelize);
 Eotrmf.init(sequelize);
 
 //User.associate(db);
-Post.associate(db);
+//Post.associate(db);
 //Team.associate(db);
 Eotrmf.associate(db);
 

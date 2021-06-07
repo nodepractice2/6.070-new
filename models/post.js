@@ -37,10 +37,5 @@ module.exports = class Post extends Sequelize.Model { //Post 모델을 위한
     //     onDelete:'cascade'
     //   });
     // };
-  static associate(db) {
-    db.Post.hasMany(db.Eotrmf);
-  
-      
-    
-  }
+ 
 };
