@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teammates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"><!-- 폰트 링크-->
+    <link rel="stylesheet" href="/Teammates.css"> 
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <ul class="team">
+            <li id = '1' onclick = 'ax(this.id)' class="team-item">
+                <div class="profile profile_red">
+                    <img src="/images/red.png">
+                    <div class="profile-contents">
+                        <h2>이세진 <span>Captain</span></h2>
+                        <p id = '11'>um</p>
+                    </div>
+                </div>
+            </li>
+            <li id = '2' onclick = 'ax(this.id)' class="team-item">
+                <div class="profile profile_beige">
+                    <img src="/images/doggy.png">
+                    <div class="profile-contents">
+                        <h2>고동현 <span>Front-End</span></h2>
+                        <p id = '22'>um</p>
+                    </div>
+                </div>
+            </li>
+            <li id = '3' onclick = 'ax(this.id)' class="team-item">
+                <div class="profile profile_green">
+                    <img src="/images/green.png">
+                    <div class="profile-contents">
+                        <h2>정찬엽 <span>Front-End</span></h2>
+                        <p id = '33'>um</p>
+                    </div>
+                </div>
+            </li>
+            <li id = '4' onclick = 'ax(this.id)' class="team-item">
+                <div class="profile profile_pink">
+                    <img src="/images/pink.png">
+                    <div class="profile-contents">
+                        <h2>이재영 <span>Back-End</span></h2>
+                        <p id = '44'>um</p>
+                    </div>
+                </div>
+            </li>
+            <li id = '5' onclick = 'ax(this.id)' class="team-item">
+                <div class="profile profile_purple">
+                    <img src="/images/purple.png">
+                    <div class="profile-contents">
+                        <h2>황예슬<span>Back-End</span></h2>
+                        <p id = '55'>um</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function ax(id) {
+            axios({
+                method : 'post',
+                url : 'http://localhost:3001/main/Teammates',
+                data : {
+                    "id" : id
+                }
+            }).then( (res) => {
+                var id2 =id +id;
+                console.log(document.getElementById(id2).value);
+                console.log(res.data);
+                document.getElementById(id2).innerHTML = res.data;
+            }).catch((err)=> {
+                console.error(err);
+            })
+        }
+     </script>
+</body>
+</html>
